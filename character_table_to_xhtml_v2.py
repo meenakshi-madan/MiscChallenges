@@ -36,32 +36,7 @@ Output should be well-formed xhtml. Html table should reflect the table structur
 </table>
 Shortest code which takes this table and turns it into an xhtml table wins.
 """
-
-
-"""table = []
-line = raw_input()
-row = []
-while line:
-	if '-' in line:
-		if row:
-			table.append(row)
-			row = []
-	else:
-		if not row:
-			row = [cell.strip() for cell in line.split('|')[1:-1]]
-		else:
-			line = line.split('|')[1:-1]
-			row = ["<br />".join([row[i],line[i].strip()]) if line[i].strip() and row[i] else row[i] if row[i] else line[i].strip() for i in range(len(line))]
-	line = raw_input()
-			
-html = "<table>"
-for row in table:
-	html += "\n<tr>\n<td>" + "</td>\n<td>".join(row) + "</td>\n</tr>"
-html += "\n</table>"
-
-print html
-"""
-
+#single character variable names to reduce character count of the code (shortest code wins)
 
 t = [] #table
 l = raw_input() #line
