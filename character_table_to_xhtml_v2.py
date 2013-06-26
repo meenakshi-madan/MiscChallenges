@@ -38,11 +38,11 @@ Shortest code which takes this table and turns it into an xhtml table wins.
 """
 
 
-table = []
+"""table = []
 line = raw_input()
 row = []
 while line:
-  if '-' in line:
+	if '-' in line:
 		if row:
 			table.append(row)
 			row = []
@@ -60,3 +60,28 @@ for row in table:
 html += "\n</table>"
 
 print html
+"""
+
+
+t = [] #table
+l = raw_input() #line
+r = [] #row
+while l:
+	if '-' in l:
+		if r:
+			t.append(r)
+			r = []
+	else:
+		if not r:
+			r = [c.strip() for c in l.split('|')[1:-1]]
+		else:
+			l = l.split('|')[1:-1]
+			r = ["<br />".join([r[i],l[i].strip()]) if l[i].strip() and r[i] else r[i] if r[i] else l[i].strip() for i in range(len(l))]
+	l = raw_input()
+			
+h = "<table>" #corresponding html code
+for r in t:
+	h += "\n<tr>\n<td>" + "</td>\n<td>".join(r) + "</td>\n</tr>"
+h += "\n</table>"
+
+print h
